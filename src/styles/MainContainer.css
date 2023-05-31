@@ -1,0 +1,104 @@
+.trendingMusic {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .maincontainer
+{
+    flex-grow: 1;
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    overflow-y: auto;
+    /* border: 1px solid yellow; */
+    overflow-y: scroll;
+    z-index: 1;
+    position: relative;
+}
+
+  
+  .SongContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .songBox {
+    width: 23%; /* Adjust the width to fit 4 items in each row with some spacing */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center; /* Center the content */
+    margin-bottom: 20px;
+    position: relative;
+    color: black;
+  }
+  
+  .songBox:hover {
+    transform: translateY(-5px);
+  }
+  
+  .songImg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .playBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .playBtn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .songTitle {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .artistName {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  /* Media Queries */
+  
+  @media (max-width: 992px) {
+    .songBox {
+      width: 30%; /* Adjust the width to fit 3 items in each row for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .songBox {
+      width: 45%; /* Adjust the width to fit 2 items in each row for smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .songBox {
+      width: 100%; /* Set the width to 100% to have 1 item per row for the smallest screens */
+    }
+  }
+
+  
+.maincontainer::-webkit-scrollbar {
+    /* Hide the default scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+    width: 0; /* Set the width to 0 to hide the scrollbar */
+    background-color: transparent;
+  }
+  
