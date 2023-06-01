@@ -25,7 +25,7 @@
   position: relative;
   left: 40%;
   margin-bottom:20px ;
-  color: white;
+  color: #36e2ec;
 }
   
   .SongContainer {
@@ -79,14 +79,14 @@
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: #36e2ec;
 
   }
   
   .artistName {
     margin-top: 5px;
     font-size: 18px;
-    color: white;
+    color: #36e2ec;
 
   }
   
