@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // import Loader from "./Loader";
 import axios from "axios";
 import { FaPlay, FaPause } from "react-icons/fa";
 import songs from "../assets/Songs";
 import MainMenu from "./MainMenu";
+import MusicContext from "../context/Context";
+
+
 const TrendingSongs = () => {
   const [songData, setSongData] = useState(null);
   const [activeSongIndex, setActiveSongIndex] = useState();
+  const {currentPlayingMusic,setcurrentPlayingMusic} = useContext(MusicContext)
+
   const handlePlay = (e, song) => {
     e.preventDefault();
     if (activeSongIndex !== undefined) {
@@ -18,13 +23,13 @@ const TrendingSongs = () => {
     
     setActiveSongIndex(song.id);
     setSongData(song);
+    setcurrentPlayingMusic(song)
     song.Song.play();
   };
 
   useEffect(() => {
-    console.log(activeSongIndex);
-    console.log(songData);
-    activeSongIndex == -1 && songData.Song.pause();
+    console.log("Displaying current playing song")
+    console.log(currentPlayingMusic)
   }, [activeSongIndex]);
 
   const handlePause = (e, song) => {
@@ -35,6 +40,7 @@ const TrendingSongs = () => {
 
   return (
     <div className="trendingMusic">
+      <h1 className="trendingSongs">Trending Songs</h1>
       <div className="SongContainer">
         {songs ? (
           songs?.map((song) => (
@@ -51,7 +57,7 @@ const TrendingSongs = () => {
                   </i>
                 )}
               </div>
-              <h5 className="songTitle">{song.songName}</h5>
+              <h1 className="songTitle">{song.songName}</h1>
               <div className="artistName">
                 <span className="ArtistName">{song.Artist}</span>
               </div>

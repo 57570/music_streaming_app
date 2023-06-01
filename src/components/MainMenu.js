@@ -4,6 +4,7 @@ import '../styles/MainContainer.css'
 const MainMenu = () => {
   return (
     <div className='maincontainer'>
+        
         <TrendingSongs />        
     </div>
   )
