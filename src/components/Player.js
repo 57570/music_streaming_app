@@ -15,10 +15,12 @@ const Player = () => {
         <div className='wave'>
             <div className='wave1'></div>
             <div className='wave2'></div>
-            <div className='wave3'></div>
+            <div className='wave3'></div>            
         </div>
+        <div className='songDetails'>
             <img className='songImg' src={music.currentPlayingMusic.poster} />
-            <span className='songTitle'>{music.currentPlayingMusic.songName}</span>
+            <div className='songTitle'>{music.currentPlayingMusic.songName}</div>
+        </div>
     </div>
   )
 }

@@ -12,9 +12,8 @@ function App() {
     <div className="App">
       <LeftMenu />
       <div className='mainBox'>
-      <MainMenu />
-      
-      <Player />
+        <MainMenu />
+        <Player /> 
       </div>
     </div>
     </MusicContext.Provider> 
