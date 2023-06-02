@@ -17,7 +17,10 @@ const songs = [
         Artist: "Alan walker",
         poster: "/1.jpg",
         Song: audio1,
-        duration: "3:36"
+        duration:{
+            minute:3,
+            second:36
+        }
     },
     {
         id:2,
@@ -25,8 +28,10 @@ const songs = [
         Artist:"Alan walker",
         poster:"/2.jpg",
         Song: audio2,
-        duration: "3:32"
-
+        duration:{
+            minute:3,
+            second:32
+        }
 
     },
     {
@@ -35,8 +40,10 @@ const songs = [
         Artist:"Daniel Levi",
         poster:"/3.jpg",
         Song: audio3,
-        duration: "3:28"
-
+        duration:{
+            minute:3,
+            second:28
+        }
     },
     {
         id:4,
@@ -44,24 +51,30 @@ const songs = [
         Artist:"Mortals",
         poster:"/4.jpg",
         Song: audio4,
-        duration: "3:50"
-
+        duration:{
+            minute:3,
+            second:50
+        }
     },{
         id:5,
         songName:"Electronic song",
         Artist:"Electro",
         poster:"/6.jpg",
         Song: audio6,
-        duration: "4:27"
-
+        duration:{
+            minute:4,
+            second:27
+        }
     },{
         id:6,
         songName:"Agar tum sath ho",
         Artist:"Tamashaa",
         poster:"/7.jpg",
         Song: audio7,
-        duration: "5:41"
-
+        duration:{
+            minute:5,
+            second:41
+        }
     },
     {
         id:7,
@@ -69,8 +82,10 @@ const songs = [
         Artist:"Dhvani Bhanushali",
         poster:"/14.jpg",
         Song: audio14,
-        duration: "3:16"
-
+        duration:{
+            minute:3,
+            second:16
+        }
     },
     {
         id:8,
@@ -78,8 +93,10 @@ const songs = [
         Artist:"Dhvani Bhanushali",
         poster:"/9.jpg",
         Song: audio9,
-        duration: "3:04"
-
+        duration:{
+            minute:3,
+            second:4
+        }
     },
     {
         id:9,
@@ -87,8 +104,10 @@ const songs = [
         Artist:"Arijit Singh",
         poster:"/10.jpg",
         Song: audio10,
-        duration: "3:42"
-
+        duration:{
+            minute:3,
+            second:42
+        }
     },
 ]
 

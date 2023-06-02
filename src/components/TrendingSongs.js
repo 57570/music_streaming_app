@@ -8,6 +8,7 @@ import MusicContext from "../context/Context";
 import PauseContext from "../context/PauseContext";
 import ActiveSongIndexContext from "../context/ActiveSongIndex";
 import PrevMusicContext from "../context/PreviousMusic";
+import ProgressBarContext from "../context/ProgressBar";
 
 
 const TrendingSongs = () => {
@@ -18,7 +19,7 @@ const TrendingSongs = () => {
   const {PauseMusic,setPauseMusic} = useContext(PauseContext) // whether music is playing or not 
   const {activeSongIndex, setActiveSongIndex} = useContext(ActiveSongIndexContext) // Active song index
   const { PrevMusic, setPrevMusic } = useContext(PrevMusicContext)
-
+  const {progress,setProgress} = useContext(ProgressBarContext) 
   const pause = useContext(PauseContext)
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const TrendingSongs = () => {
           activeSong.Song.pause();
         }
       }
+    setProgress(0)
     setActiveSongIndex(song.id);
     // setSongData(song);
     setPrevMusic(!PrevMusic)

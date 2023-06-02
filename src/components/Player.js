@@ -7,11 +7,11 @@ import songs from "../assets/Songs";
 import PauseContext from "../context/PauseContext";
 import ActiveSongIndexContext from "../context/ActiveSongIndex";
 import PrevMusicContext from "../context/PreviousMusic";
+import ProgressBarContext from "../context/ProgressBar";
 
 
 const Player = () => {
-  // let progress = 1;
-  const [progress,setProgress] = useState(0)
+  const {progress,setProgress} = useContext(ProgressBarContext)
   const [startingSongTimeInSecond, setStartingSongTimeInSecond] = useState(0);
   const [startingTimeInMinute, setStartingTimeInMinute] = useState(0);
   const { PrevMusic, setPrevMusic } = useContext(PrevMusicContext)
@@ -41,9 +41,6 @@ const Player = () => {
   //   })
   // }, [currentPlayingMusic])
   useEffect(() => {
-    // console.log("PrevMusic in Player")
-
-    // console.log(PrevMusic)
       setStartingSongTimeInSecond(0)
       setStartingTimeInMinute(0)
   }, [PrevMusic])
@@ -57,12 +54,14 @@ const Player = () => {
         setStartingSongTimeInSecond((prevSecond) => {
           if (prevSecond === 59) {
             setStartingTimeInMinute((prevMinute) => prevMinute + 1);
-             setProgress(progress+1)
+            setStartingSongTimeInSecond(0)
+             setProgress(progress+500/(currentPlayingMusic.duration.minute*60+currentPlayingMusic.duration.second))
              console.log(progress)
             return 0;
           }
           else{
-          setProgress(progress+1)
+            setProgress(progress+500/(currentPlayingMusic.duration.minute*60+currentPlayingMusic.duration.second))
+
           console.log(progress)
           return prevSecond+1;}
         });
@@ -84,6 +83,7 @@ const Player = () => {
     if (startingSongTimeInSecond === 0) {
       setStartingSongTimeInSecond(0);
       setStartingTimeInMinute(0);
+      setProgress(0)
     }
     // setSeconds(0)
   };
@@ -145,9 +145,11 @@ const Player = () => {
           {startingSongTimeInSecond.toString().padStart(2, "0")}
         </span>
         {/* <input className="seekBar" type="range" min={0} max={100} /> */}
-        <div className="SeekBar" style={{width:`${progress}px`,height:'5px',backgroundColor:'white'}}></div>
+        <div style={{width:'500px',backgroundColor:'red',height:'5px',marginTop:'43px'}}>
+          <div className="SeekBar" style={{maxWidth:'500px',marginLeft:'0px',zIndex:'20',marginTop:'0px',width:`${progress}px`,height:'5px',backgroundColor:'white'}}></div>
+        </div>
         <span className="startingTime">
-          {currentPlayingMusic.duration}
+          {currentPlayingMusic.duration.minute}:{currentPlayingMusic.duration.second.toString().padStart(2,"0")}
         </span>
       </div>
     </div>
