@@ -7,28 +7,33 @@ import MainMenu from "./MainMenu";
 import MusicContext from "../context/Context";
 import PauseContext from "../context/PauseContext";
 import ActiveSongIndexContext from "../context/ActiveSongIndex";
+import PrevMusicContext from "../context/PreviousMusic";
 
 
 const TrendingSongs = () => {
   const [songData, setSongData] = useState(null);
   const [isPause, setisPause] = useState()
-
-  const {currentPlayingMusic,setcurrentPlayingMusic} = useContext(MusicContext)
-  const {PauseMusic,setPauseMusic} = useContext(PauseContext)
-  const {activeSongIndex, setActiveSongIndex} = useContext(ActiveSongIndexContext)
+  // const [prevMusic,setPrevMusic] = useState()
+  const {currentPlayingMusic,setcurrentPlayingMusic} = useContext(MusicContext) // Current playing music object
+  const {PauseMusic,setPauseMusic} = useContext(PauseContext) // whether music is playing or not 
+  const {activeSongIndex, setActiveSongIndex} = useContext(ActiveSongIndexContext) // Active song index
+  const { PrevMusic, setPrevMusic } = useContext(PrevMusicContext)
 
   const pause = useContext(PauseContext)
 
   useEffect(() => {
     setisPause(pause.PauseMusic)
-    
-  }, [PauseContext])
+    console.log("In trending songs")
+    console.log(activeSongIndex)
+  }, [PauseContext,activeSongIndex])
+  
   
 
 
 
   const handlePlay = (e, song) => {
     e.preventDefault();
+
     if (activeSongIndex !== -1) {
         const activeSong = songs.find((s) => s.id === activeSongIndex);
         if (activeSong) {
@@ -36,8 +41,9 @@ const TrendingSongs = () => {
         }
       }
     setActiveSongIndex(song.id);
-    setSongData(song);
-    setcurrentPlayingMusic(song)
+    // setSongData(song);
+    setPrevMusic(!PrevMusic)
+    setcurrentPlayingMusic(song) 
     song.Song.play();
     setPauseMusic(false) // Song is playing and pause button is displayed 
   };
