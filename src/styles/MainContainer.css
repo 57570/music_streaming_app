@@ -117,3 +117,10 @@
     background-color: transparent;
   }
   
+  .SongLyrics
+  {
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: red;
+  }

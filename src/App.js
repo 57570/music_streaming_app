@@ -8,6 +8,9 @@ import PauseContext from "./context/PauseContext";
 import ActiveSongIndexContext from "./context/ActiveSongIndex";
 import PrevMusicContext from "./context/PreviousMusic";
 import ProgressBarContext from "./context/ProgressBar";
+import LyricsContext from "./context/LyricsContext";
+import LyricsComponent from "./components/LyricsComponent";
+
 
 function App() {
   const [currentPlayingMusic, setcurrentPlayingMusic] = useState({});
@@ -15,7 +18,7 @@ function App() {
   const [activeSongIndex, setActiveSongIndex] = useState(-1);
   const [PrevMusic, setPrevMusic] = useState(false);
   const [progress,setProgress] = useState(0)
-
+  const [Lyrics,setLyrics] = useState(false)
   // const [MycurrentSong,setMycurrentSong] = useState()
 
   // let currentMusic =  useContext(MusicContext)
@@ -25,6 +28,7 @@ function App() {
   }, [activeSongIndex]);
 
   return (
+    <LyricsContext.Provider value={{Lyrics,setLyrics}}>
     <MusicContext.Provider
       value={{ currentPlayingMusic, setcurrentPlayingMusic }}
     >
@@ -46,6 +50,7 @@ function App() {
         </ActiveSongIndexContext.Provider>
       </PauseContext.Provider>
     </MusicContext.Provider>
+    </LyricsContext.Provider>
   );
 }
 

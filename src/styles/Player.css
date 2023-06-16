@@ -5,9 +5,6 @@
     display: flex;
     background-color: #0b1320;
     position: relative;
-    /* background-color: #111727; */
-    /* border: 1px solid white; */
-    /* border-right: 1px solid white; */
 }
 
 .startingTime
@@ -146,4 +143,20 @@
     margin-left: 20px;
     margin-top: -55px;
     width: 400px;
+}
+
+.LyricsBox
+{
+    height: fit-content;
+    width: 100%;
+    width: fit-content;
+}
+
+.lyricsIcon
+{
+    font-size: large;
+    color: white;
+    margin-top: 33px;
+    margin-left: 25px;
+
 }
